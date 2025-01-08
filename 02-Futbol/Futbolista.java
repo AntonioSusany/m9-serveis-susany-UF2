@@ -1,4 +1,4 @@
-// Futbolista.java - Versió 1 (incompleta)
+// Futbolista.java - Versió 2 (completa)
 import java.util.Random;
 
 public class Futbolista extends Thread {
@@ -18,7 +18,13 @@ public class Futbolista extends Thread {
 
     @Override
     public void run() {
-        // Aquí iría la lògica per simular els xuts
+        Random rand = new Random();
+        for (int i = 0; i < NUM_TIRADES; i++) {
+            ntirades++;
+            if (rand.nextFloat() < PROBABILITAT) {
+                ngols++;
+            }
+        }
     }
 
     public int getNgols() {
@@ -30,21 +36,28 @@ public class Futbolista extends Thread {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        
+        System.out.println("Inici dels xuts --------------------");
+
+        // Crear els fils
         Futbolista[] jugadors = new Futbolista[NUM_JUGADORS];
         
+        // Crear jugadors
         for (int i = 0; i < NUM_JUGADORS; i++) {
             jugadors[i] = new Futbolista("Jugador " + (i + 1));
         }
         
+        // Iniciar els fils
         for (Futbolista futbolista : jugadors) {
             futbolista.start();
         }
         
+        // Esperar que tots els fils acabin
         for (Futbolista futbolista : jugadors) {
             futbolista.join();
         }
-        
+
+        // Mostrar les estadístiques
+        System.out.println("Fi dels xuts -----------------------");
         System.out.println("--- Estadístiques ----");
         for (Futbolista futbolista : jugadors) {
             System.out.println(futbolista.getName() + " -> " + futbolista.getNgols() + " gols");
