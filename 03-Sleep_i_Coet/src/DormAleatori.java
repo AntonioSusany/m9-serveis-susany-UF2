@@ -10,7 +10,7 @@ public class DormAleatori extends Thread {
         this.instantCreacio = System.currentTimeMillis(); // Temps de creació
     }
 
-    @Override
+    @Override   
     public void run() {
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
