@@ -1,3 +1,5 @@
+
+// comentari per canviar el missatge del commit 
 public class Associacio {
     private static final int NUM_SOCIS = 1000;
     private Soci[] socis;
