@@ -1,27 +1,27 @@
-public class Compte {
+class Compte {
     private static Compte instance;
     private float saldo;
-
+    
     private Compte() {
         saldo = 0;
     }
-
-    public static Compte getInstance() {
+    
+    public static synchronized Compte getInstance() {
         if (instance == null) {
             instance = new Compte();
         }
         return instance;
     }
-
-    public void ingressar(float quantitat) {
+    
+    public synchronized void ingressar(float quantitat) {
         saldo += quantitat;
     }
-
-    public void retirar(float quantitat) {
+    
+    public synchronized void retirar(float quantitat) {
         saldo -= quantitat;
     }
-
-    public float getSaldo() {
+    
+    public synchronized float getSaldo() {
         return saldo;
     }
 }
