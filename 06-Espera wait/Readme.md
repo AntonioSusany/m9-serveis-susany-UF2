@@ -33,7 +33,7 @@ public void run() {
     }
 }
 
----
+```
 
 ## 3. Per què creus que fa falta la llista i no valdria només amb una variable sencera de reserves?
 
@@ -44,5 +44,10 @@ Si només utilitzéssim una variable sencera  per comptar el nombre de places oc
 - Facilitar possibles millores, com mostrar la llista d’assistents o gestionar una cua d’espera.
 
 Si només tinguéssim una variable sencera (int placesOcupades), el sistema només sabria quantes places hi ha lliures, però no podria validar quins assistents han reservat realment, fent més difícil la gestió del sistema de reserves.
+
+
+
+
+
 
 
