@@ -1,21 +1,31 @@
 public class Forquilla {
+    public static final int LLIURE = -1;
+    private int propietari;
     private final int numero;
 
     public Forquilla(int numero) {
         this.numero = numero;
+        this.propietari = LLIURE;
     }
 
-    public void agafar() {
-        System.out.println("Forquilla " + numero + " agafada.");
+    public synchronized boolean agafar(int idFilòsof) throws InterruptedException {
+        while (propietari != LLIURE) {
+            wait();
+        }
+        propietari = idFilòsof;
+        return true;
     }
 
-    public void deixar() {
-        System.out.println("Forquilla " + numero + " deixada.");
+    public synchronized void deixar() {
+        propietari = LLIURE;
+        notifyAll();
     }
 
     public int getNumero() {
         return numero;
+    }
 
-        
+    public int getPropietari() {
+        return propietari;
     }
 }

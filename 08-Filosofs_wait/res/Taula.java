@@ -16,8 +16,11 @@ class Taula {
 
     public void showTaula() {
         System.out.println("Taula amb " + filosofs.length + " filòsofs.");
+    }
+
+    public void cridarATaula() {
         for (Filòsof filòsof : filosofs) {
-            filòsof.pensar();  
+            filòsof.start();
         }
     }
 }

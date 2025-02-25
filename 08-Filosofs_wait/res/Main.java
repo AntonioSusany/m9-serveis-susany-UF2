@@ -3,5 +3,6 @@ public class Main {
         int numFilosofs = 5;
         Taula taula = new Taula(numFilosofs);
         taula.showTaula();
+        taula.cridarATaula();
     }
 }
